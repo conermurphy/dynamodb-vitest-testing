@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "scripts": {
+    "start:testing:db": "docker compose up testing-db",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.554.0",
+    "@aws-sdk/lib-dynamodb": "^3.554.0",
+    "zod": "^3.22.4"
+  }
+}
