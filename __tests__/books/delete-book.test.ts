@@ -1,19 +1,6 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb'
-import {
-  DeleteCommand,
-  GetCommand,
-  PutCommand,
-  UpdateCommand,
-} from '@aws-sdk/lib-dynamodb'
+import { DeleteCommand, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb'
 import { beforeAll, expect, describe, it } from 'vitest'
-import { z } from 'zod'
-
-const bookSchema = z.object({
-  pk: z.string(),
-  sk: z.string(),
-  author: z.string(),
-  title: z.string(),
-})
 
 const dynamodb = new DynamoDB({})
 const TableName = 'test-db'
