@@ -1,6 +1,6 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb'
-import { GetCommand, PutCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb'
-import { beforeAll, expect, describe, it } from 'vitest'
+import { GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb'
+import { expect, describe, it } from 'vitest'
 import { z } from 'zod'
 
 const bookSchema = z.object({
@@ -14,10 +14,8 @@ const dynamodb = new DynamoDB({})
 const TableName = 'test-db'
 
 describe('create-book', () => {
-  beforeAll(async () => {})
-
   describe('SUCCESS', () => {
-    it('updates a book', async () => {
+    it('creates a book', async () => {
       await dynamodb.send(
         new PutCommand({
           TableName,
