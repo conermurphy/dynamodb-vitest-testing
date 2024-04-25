@@ -2,7 +2,10 @@ import { DynamoDB } from '@aws-sdk/client-dynamodb'
 import { DeleteCommand, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb'
 import { beforeAll, expect, describe, it } from 'vitest'
 
-const dynamodb = new DynamoDB({})
+// NOTE: Using the local endpoint for DynamoDB to connect to our Docker container
+const dynamodb = new DynamoDB({
+  endpoint: 'http://localhost:8000',
+})
 const TableName = 'test-db'
 
 describe('delete-book', () => {

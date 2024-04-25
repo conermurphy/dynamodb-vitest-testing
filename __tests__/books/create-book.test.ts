@@ -10,7 +10,10 @@ const bookSchema = z.object({
   title: z.string(),
 })
 
-const dynamodb = new DynamoDB({})
+// NOTE: Using the local endpoint for DynamoDB to connect to our Docker container
+const dynamodb = new DynamoDB({
+  endpoint: 'http://localhost:8000',
+})
 const TableName = 'test-db'
 
 describe('create-book', () => {
